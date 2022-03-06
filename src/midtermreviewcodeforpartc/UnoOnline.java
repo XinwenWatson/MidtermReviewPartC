@@ -14,7 +14,7 @@ import java.util.Scanner;
  * of possible users. To be used as the beginning code for MidtermReview C.
  * @author dancye, 2019
  */
-public class UnoOnline 
+public class UnoOnline extends PasswordValidator
 {
     private User users[] = new User[100];//room for 100 online players!
     int userCount;//keep track of number of users for array
@@ -63,8 +63,11 @@ public class UnoOnline
             password = sc.nextLine();
             
             //delegate the password validation to a PasswordValidator class
-            PasswordValidator pwdVal=new PasswordValidator();
-            validPassword=pwdVal.passwordValidate(password);
+            //PasswordValidator pwdVal=new PasswordValidator();
+            //validPassword=pwdVal.passwordValidate(password);
+            
+            // extend UnoOnline class to add PasswordValidator class
+            validPassword=passwordValidate(password);
             
         }//loop only ends when password is valid so now we create the User
         
