@@ -17,7 +17,7 @@ import java.util.Scanner;
 public class UnoOnline 
 {
     private User users[] = new User[100];//room for 100 online players!
-     
+    int userCount;//keep track of number of users for array
     /**
      * Main method with call to private run method, to encapsulate our
      * main functionality.
@@ -26,7 +26,18 @@ public class UnoOnline
     public static void main(String[] args) 
      {
        UnoOnline newPortal = new UnoOnline();
-       newPortal.run();
+       Scanner input = new Scanner(System.in);
+        
+        for(newPortal.userCount=0; newPortal.userCount<newPortal.users.length; ){
+            System.out.print("will you add an user(Y / N): ");            
+            String mark=input.next();
+            
+            if (mark.equals("Y"))
+                newPortal.run(); //main path, continue to add one new user
+            else if (mark.equals("N"))
+                break;//alternate path, stop adding new users
+        }
+       
     }
      /**
      * method that takes in the User's name and chosen password
@@ -38,7 +49,6 @@ public class UnoOnline
      */
     private void run()
     {
-        int userCount=0;//keep track of number of users for array
         Scanner sc = new Scanner(System.in);
         System.out.println("please enter your desired user name:");
         String userName = sc.nextLine();
